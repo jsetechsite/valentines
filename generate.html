@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Timestamp</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="generateButton">Generate Text</button>
+  <div id="output"></div>
+
+  <script>
+    function generateText() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const hour = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      return `${year}${hour}${minutes}${seconds}`;
+    }
+
+    document.getElementById('generateButton').addEventListener('click', function() {
+      const outputText = generateText();
+      document.getElementById('output').textContent = outputText;
+    });
+  </script>
+
+</body>
+</html>
